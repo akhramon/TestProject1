@@ -29,11 +29,16 @@ namespace TestProject1
             }
             return l;
         }
+
+       
         public int Summa(List<int> i)
         {
-            
+            // не понимаю как сюда передать значение l
+            // и еще смущает строчка int h = i.Sum(); i это список а h int? или метод sum выдает int?   
+
             int h = i.Sum();
             Console.WriteLine(h);
+            Console.ReadLine();
 
 
 
