@@ -16,26 +16,16 @@ namespace TestProject1
         public List<int> SearchMultiple()
         {
 
-            List<int> l = t;
+            List<int> l = new List<int>();
+         
 
             for (int c = 1; c <= 1000; c++)
             {
-                Console.WriteLine(c);
+  
+               l.Add((c % 3 == 0) ? c : 0);
+               l.Add((c % 5 == 0) ? c : 0);
                 
-
-                
-
-
-                List<int> t = new List<int>(); 
-
-
-                int f = ((c % 3 == 0) ? c : 0);
-                t.Add(f);
-                int g = ((c % 3 == 0) ? c : 0);
-                t.Add(g);
-
-
-                return t;
+       
             }
             return l;
         }

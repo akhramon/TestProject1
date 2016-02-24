@@ -23,7 +23,10 @@ namespace TestProject1
             Console.WriteLine(task.T(2));
             Enumerable.Range(2, 8).ToList().ForEach(i =>
             {
+                DateTime start = DateTime.Now;
                 Console.WriteLine("T({0}) = {1}", i, task.T(i));
+                TimeSpan spend = (DateTime.Now - start);
+                Console.WriteLine("Прошло времени: " + spend);
             });
         }       
     }
@@ -32,7 +35,12 @@ namespace TestProject1
     {
         public bool Check()
         {
-            return T(2) == 9 && T(5) == 3492;
+            return RemoveNulls(100300) == 13 && T(2) == 9 && T(5) == 3492;
+        }
+
+        public int RemoveNulls(int n)
+        {
+            return int.Parse(n.ToString().Replace("0",""));
         }
 
         public int T(int n)
@@ -41,7 +49,8 @@ namespace TestProject1
             int numberOf10Friendly = 0;
             foreach(int i in Enumerable.Range(1,maxNumber))
             {
-                numberOf10Friendly += (IsFriendly(i) ? 1 : 0);
+                //numberOf10Friendly += (IsFriendly(i) ? 1 : 0);
+                numberOf10Friendly += (IsFriendly(RemoveNulls(i)) ? 1 : 0);
             }
             return numberOf10Friendly;
         }
